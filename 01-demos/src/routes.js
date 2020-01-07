@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom'
 
 import RefDeom from './demos/ref'
 import ContextDemo from './demos/context'
+import contextPractice from './demos/contextPractice'
 import ConcurrentModeDemo from './demos/concurrent-mode'
 import SuspenseDemo from './demos/suspense'
 import HooksDemo from './demos/hooks'
@@ -16,6 +17,7 @@ export default (
     <Route path="/ref" component={RefDeom} />
     <Route path="/forward-ref" component={ForwardRefDemo} />
     <Route path="/context" component={ContextDemo} />
+    <Route path="/contextPractice" component={contextPractice} />
     <Route path="/concurrent" component={ConcurrentModeDemo} />
     <Route path="/suspense" component={SuspenseDemo} />
     <Route path="/hooks" component={HooksDemo} />

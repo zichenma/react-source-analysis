@@ -11,6 +11,7 @@ class App extends Component {
           <Link to="/ref">RefDemo</Link>
           <Link to="/forward-ref">ForwardRefDemo</Link>
           <Link to="/context">ContextDemo</Link>
+          <Link to="/contextPractice">Context Practice Demo</Link>
           <Link to="/concurrent">ConcurrentModeDemo</Link>
           <Link to="/suspense">SuspenseDemo</Link>
           <Link to="/hooks">HooksDemo</Link>
