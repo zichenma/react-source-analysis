@@ -1,91 +1,26 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { useState } from 'react';
 
-const { Provider, Consumer } = React.createContext('default')
 
-class Parent extends React.Component {
-  state = {
-    childContext: '123',
-    newContext: '456',
-  }
+const { Provider, Consumer } = React.createContext();
 
-  // getChildContext() {
-  //   return { value: this.state.childContext, a: 'ccccc' }
-  // }
-
-  render() {
-    return (
-      <>
-        {/* <div>
-          <label>childContext:</label>
-          <input
-            type="text"
-            value={this.state.childContext}
-            onChange={e => this.setState({ childContext: e.target.value })}
-          />
-        </div> */}
-        <div>
-          <label>newContext:</label>
-          <input
-            type="text"
-            value={this.state.newContext}
-            onChange={e => this.setState({ newContext: e.target.value })}
-          />
-        </div>
-        <Provider value={this.state.newContext}>{this.props.children}</Provider>
-      </>
-    )
-  }
+function Parent () {
+  const [value, setValue] = useState('');
+  return (
+    <>
+    <input value={value} type='text' onChange={e => setValue(e.target.value)} />
+    <Provider value={value}>
+      <Child />
+    </Provider>
+    </>
+  )
 }
 
-// class Parent2 extends React.Component {
-//   // { value: this.state.childContext, a: 'bbbbb' }
-  
-//   getChildContext() {
-//     return { a: 'bbbbb' }
-//   }
-
-//   render() {
-
-//     return this.props.children
-//   }
-// }
-
-function Child1(props, context) {
-  console.log(context)
-  return <Consumer>{value => <p>newContext: {value}</p>}</Consumer>
+function Child() {
+  return <Consumer>{value => <p>Child: {value}</p>}</Consumer>
 }
-
-// class Child2 extends React.Component {
-//   render() {
-//     return (
-//       <p>
-//         childContext: {this.context.value} {this.context.a}
-//       </p>
-//     )
-//   }
-// }
-
-// Child2.contextType = Consumer
-
-// Child2.contextTypes = {
-//   value: PropTypes.string,
-//   a: PropTypes.string,
-// }
-
-// Parent.childContextTypes = {
-//   value: PropTypes.string,
-//   a: PropTypes.string,
-// }
-
-// Parent2.childContextTypes = {
-//   a: PropTypes.string,
-// }
 
 export default () => (
-  <Parent>
-   
-      <Child1 />
-
+  <Parent> 
+    <Child />
   </Parent>
 )
